@@ -1,0 +1,124 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1">
+    <title>Ticketing Center</title>
+    <link href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.3/dist/css/bootstrap.min.css" rel="stylesheet">
+    <style>
+        body {
+            background-image: url(https://static.tildacdn.net/tild6336-6536-4434-a233-653636303237/fukuoka-station-min-.jpg);
+            background-repeat: no-repeat;
+            background-size: cover;
+            background-attachment: fixed;
+        }
+
+        .form-container {
+            background-color: #f8f9fa;
+            border: 2px solid #000;
+            padding: 10px;
+            margin: 20px;
+            border-radius: 20px;
+            opacity: 90%;
+        }
+
+        h1 {
+            text-align: center;
+        }
+
+        .checkbox-group {
+            display: flex;
+            flex-direction: column;
+        }
+
+        .checkbox-group label {
+            margin-left: 10px;
+        }
+
+        textarea {
+            padding: 10px;
+            margin-top: 5px;
+            resize: vertical;
+        }
+
+        .submit-btn {
+            display: block;
+            margin-top: 20px;
+            width: 100%;
+        }
+
+        .search-bar {
+            width: 250px;
+        }
+
+        summary {
+            text-align: left;
+        }
+
+        button {
+            text-align: center;
+        }
+    </style>
+</head>
+
+<body>
+    <div class="container">
+        <div class="form-container">
+            <h1>Ticketing Center</h1>
+            <details>
+                <summary>Personal Info</summary>
+                <form class="form-group">
+                    <div class="row">
+                        <div class="col-md-6">
+                            <label for="name">Full Name</label>
+                            <input type="text" class="form-control" placeholder="Enter your name" required>
+                        </div>
+                        <div class="col-md-6">
+                            <label for="email">Email</label>
+                            <input type="email" class="form-control" placeholder="Enter your email" required>
+                        </div>
+                    </div>
+                    <button type="submit" class="btn btn-success" onclick="showValue()">Send Info</button>
+                    <details>
+                        <summary>Ticket Summary</summary>
+                        <label for="section">Seat</label>
+                        <select id="seats" name="seat" class="form-control">
+                            <option>Select</option>
+                            <option value="50">Second Sitting</option>
+                            <option value="100">Sleeper Class</option>
+                            <option value="300">Chair Car</option>
+                            <option value="500">Executive Chair Car</option>
+                            <option value="450">Anubhuthi Chair Car</option>
+                            <option value="700">AC Three Tier</option>
+                        </select>
+                        <br>
+                        <label for="section">Choose an Option</label>
+                        <select id="who" name="who" class="form-control">
+                            <option>Select</option>
+                            <option value="1">Adult</option>
+                            <option value="0.8">Student (20% off)</option>
+                            <option value="0.85">Senior (15% off)</option>
+                        </select>
+                        <br>
+                        <button type="button" class="btn btn-success" onclick="showValue()">Show Price</button>
+                    </details>
+                </form>
+            </details>
+        </div>
+    </div>
+
+    <script>
+        function showValue() {
+            var seatPrice = document.getElementById('seats').value;
+            var discountFactor = document.getElementById('who').value;
+
+           
+            var finalPrice = seatPrice * discountFactor;
+            finalPrice = finalPrice.toFixed(2); 
+
+            
+            alert("The ticket price is ₱" + finalPrice);
+        }
+    </script>
+</body>
+</html>
